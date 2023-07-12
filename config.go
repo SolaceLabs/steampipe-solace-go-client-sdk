@@ -1,4 +1,4 @@
-package solacesdk
+package solace
 
 import (
 	"fmt"
@@ -7,9 +7,9 @@ import (
 )
 
 type Config struct {
-	ApiToken       *string
-	ApiUrl 	       *string
-	RateLimit      *int
+	ApiToken  *string
+	ApiUrl    *string
+	RateLimit *int
 }
 
 func NewConfig(apiToken *string, apiUrl *string, rateLimit *int) (*Config, error) {
@@ -32,8 +32,8 @@ func NewConfig(apiToken *string, apiUrl *string, rateLimit *int) (*Config, error
 	var cleanEnvUrl = strings.TrimSuffix(*apiUrl, "/")
 
 	return &Config{
-		ApiToken: apiToken,
-		ApiUrl:   &cleanEnvUrl,
+		ApiToken:  apiToken,
+		ApiUrl:    &cleanEnvUrl,
 		RateLimit: rateLimit,
 	}, err
 }

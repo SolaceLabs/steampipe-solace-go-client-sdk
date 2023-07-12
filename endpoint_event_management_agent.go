@@ -1,4 +1,4 @@
-package solacesdk
+package solace
 
 import (
 	"fmt"
