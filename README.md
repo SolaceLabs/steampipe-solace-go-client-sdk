@@ -12,7 +12,7 @@ go get github.com/SolaceLabs/steampipe-solace-go-client-sdk
 ```
 2. Create a client
 ```go
-var config, err = solace.NewConfig(apiToken, apiUrl, rateLimit)
+var config, err = solace.NewConfig(apiToken, apiUrl)
 if err != nil {
   return nil, err
 }

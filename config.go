@@ -7,18 +7,12 @@ import (
 )
 
 type Config struct {
-	ApiToken  *string
-	ApiUrl    *string
-	RateLimit *int
+	ApiToken *string
+	ApiUrl   *string
 }
 
-func NewConfig(apiToken *string, apiUrl *string, rateLimit *int) (*Config, error) {
+func NewConfig(apiToken *string, apiUrl *string) (*Config, error) {
 	var err error
-
-	err = validateRateLimit(rateLimit)
-	if err != nil {
-		return nil, err
-	}
 
 	err = validateApiToken(apiToken)
 	if err != nil {
@@ -32,9 +26,8 @@ func NewConfig(apiToken *string, apiUrl *string, rateLimit *int) (*Config, error
 	var cleanEnvUrl = strings.TrimSuffix(*apiUrl, "/")
 
 	return &Config{
-		ApiToken:  apiToken,
-		ApiUrl:    &cleanEnvUrl,
-		RateLimit: rateLimit,
+		ApiToken: apiToken,
+		ApiUrl:   &cleanEnvUrl,
 	}, err
 }
 
@@ -58,14 +51,6 @@ func validateApiUrl(envUrl *string) error {
 func validateApiToken(apiToken *string) error {
 	if apiToken == nil {
 		return fmt.Errorf("the API Token is not defined; to get a token, visit the API tab in your Profile page in Make")
-	}
-
-	return nil
-}
-
-func validateRateLimit(rateLimit *int) error {
-	if rateLimit != nil && *rateLimit <= 0 {
-		return fmt.Errorf("the rate limit should be a positive number")
 	}
 
 	return nil

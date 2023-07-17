@@ -10,51 +10,29 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"time"
 )
 
 var (
-	defaultPageSize  = 100
-	defaultRateLimit = 50
+	defaultPageSize = 100
 )
 
 type Client struct {
-	client      *http.Client
-	rateLimiter <-chan time.Time
-	baseUrl     string
-	apiToken    string
+	client   *http.Client
+	baseUrl  string
+	apiToken string
 }
 
 func GetClient(config *Config) *Client {
-	if config.RateLimit == nil {
-		config.RateLimit = &defaultRateLimit
-	}
-
-	// rate limiter with 20% burstable rate
-	rateLimiter := make(chan time.Time, *config.RateLimit/20)
-	go func() {
-		for t := range time.Tick(time.Minute / time.Duration(*config.RateLimit)) {
-			rateLimiter <- t
-		}
-	}()
-
 	clientInstance := &Client{
-		client:      http.DefaultClient,
-		rateLimiter: rateLimiter,
-		apiToken:    *config.ApiToken,
-		baseUrl:     *config.ApiUrl,
+		client:   http.DefaultClient,
+		apiToken: *config.ApiToken,
+		baseUrl:  *config.ApiUrl,
 	}
 
 	return clientInstance
 }
 
-func (at *Client) rateLimit() {
-	<-at.rateLimiter
-}
-
 func (at *Client) Get(config *RequestConfig, target interface{}) ([]byte, error) {
-	at.rateLimit()
-
 	// prepare the request URL
 	req, err := at.createAuthorizedRequest(fmt.Sprintf("%s/api/v2/%s", at.baseUrl, config.Endpoint), http.MethodGet)
 	if err != nil {
@@ -80,8 +58,6 @@ func (at *Client) Get(config *RequestConfig, target interface{}) ([]byte, error)
 }
 
 func (at *Client) Post(config *RequestConfig, target interface{}) ([]byte, error) {
-	at.rateLimit()
-
 	// prepare the request URL
 	var body, err = json.Marshal(config.Body)
 	if err != nil {
