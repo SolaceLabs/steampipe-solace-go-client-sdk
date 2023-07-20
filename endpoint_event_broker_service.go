@@ -5,8 +5,8 @@ import (
 )
 
 type EventBrokerService struct {
-	CreatedTime         string   `json:"createdTime"`
-	UpdatedTime         string   `json:"updatedTime"`
+	CreatedTime         time.Time    `json:"createdTime"`
+	UpdatedTime         strtime.Time ing   `json:"updatedTime"`
 	CreatedBy           string   `json:"createdBy"`
 	ChangedBy           string   `json:"changedBy"`
 	Id                  string   `json:"id"`

@@ -2,26 +2,27 @@ package solace
 
 import (
 	"fmt"
+	"time"
 )
 
 type EventBrokerServiceDetail struct {
-	CreatedTime                string   `json:"createdTime"`
-	UpdatedTime                string   `json:"updatedTime"`
-	CreatedBy                  string   `json:"createdBy"`
-	ChangedBy                  string   `json:"changedBy"`
-	Id                         string   `json:"id"`
-	Type                       string   `json:"type"`
-	Name                       string   `json:"name"`
-	OwnedBy                    string   `json:"ownedBy"`
-	InfrastructureId           string   `json:"infrastructureId"`
-	DatacenterId               string   `json:"datacenterId"`
-	ServiceClassId             string   `json:"serviceClassId"`
-	EventMeshId                string   `json:"eventMeshId"`
-	OngoingOperationIds        []string `json:"ongoingOperationIds"`
-	AdminState                 string   `json:"adminState"`
-	CreationState              string   `json:"creationState"`
-	Locked                     bool     `json:"locked"`
-	DefaultManagementHostname  string   `json:"defaultManagementHostname"`
+	CreatedTime                time.Time `json:"createdTime"`
+	UpdatedTime                time.Time `json:"updatedTime"`
+	CreatedBy                  string    `json:"createdBy"`
+	ChangedBy                  string    `json:"changedBy"`
+	Id                         string    `json:"id"`
+	Type                       string    `json:"type"`
+	Name                       string    `json:"name"`
+	OwnedBy                    string    `json:"ownedBy"`
+	InfrastructureId           string    `json:"infrastructureId"`
+	DatacenterId               string    `json:"datacenterId"`
+	ServiceClassId             string    `json:"serviceClassId"`
+	EventMeshId                string    `json:"eventMeshId"`
+	OngoingOperationIds        []string  `json:"ongoingOperationIds"`
+	AdminState                 string    `json:"adminState"`
+	CreationState              string    `json:"creationState"`
+	Locked                     bool      `json:"locked"`
+	DefaultManagementHostname  string    `json:"defaultManagementHostname"`
 	ServiceConnectionEndpoints []struct {
 		Id             string   `json:"id"`
 		Type           string   `json:"type"`

@@ -2,26 +2,27 @@ package solace
 
 import (
 	"fmt"
+	"time"
 )
 
 type Datacenter struct {
-	Id                           string   `json:"id"`
-	Type                         string   `json:"type"`
-	Name                         string   `json:"name"`
-	DatacenterType               string   `json:"datacenterType"`
-	Provider                     string   `json:"provider"`
-	OperState                    string   `json:"operState"`
-	CreatedBy                    string   `json:"createdBy"`
-	CreatedTime                  string   `json:"createdTime"`
-	UpdatedBy                    string   `json:"updatedBy"`
-	UpdatedTime                  string   `json:"updatedTime"`
-	Available                    bool     `json:"available"`
-	SupportedServiceClasses      []string `json:"supportedServiceClasses"`
-	CloudAgentVersion            string   `json:"cloudAgentVersion"`
-	K8sServiceType               string   `json:"k8sServiceType"`
-	NumSupportedPrivateEndpoints int      `json:"numSupportedPrivateEndpoints"`
-	NumSupportedPublicEndpoints  int      `json:"numSupportedPublicEndpoints"`
-	OrganizationId               string   `json:"organizationId"`
+	Id                           string    `json:"id"`
+	Type                         string    `json:"type"`
+	Name                         string    `json:"name"`
+	DatacenterType               string    `json:"datacenterType"`
+	Provider                     string    `json:"provider"`
+	OperState                    string    `json:"operState"`
+	CreatedBy                    string    `json:"createdBy"`
+	CreatedTime                  time.Time `json:"createdTime"`
+	UpdatedBy                    string    `json:"updatedBy"`
+	UpdatedTime                  time.Time `json:"updatedTime"`
+	Available                    bool      `json:"available"`
+	SupportedServiceClasses      []string  `json:"supportedServiceClasses"`
+	CloudAgentVersion            string    `json:"cloudAgentVersion"`
+	K8sServiceType               string    `json:"k8sServiceType"`
+	NumSupportedPrivateEndpoints int       `json:"numSupportedPrivateEndpoints"`
+	NumSupportedPublicEndpoints  int       `json:"numSupportedPublicEndpoints"`
+	OrganizationId               string    `json:"organizationId"`
 	Location                     struct {
 		Longitude string `json:"longitude"`
 		Latitude  string `json:"latitude"`

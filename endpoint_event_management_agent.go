@@ -2,24 +2,25 @@ package solace
 
 import (
 	"fmt"
+	"time"
 )
 
 type EventManagementAgent struct {
-	CreatedTime                     string   `json:"createdTime"`
-	UpdatedTime                     string   `json:"updatedTime"`
-	CreatedBy                       string   `json:"createdBy"`
-	ChangedBy                       string   `json:"changedBy"`
-	Id                              string   `json:"id"`
-	Name                            string   `json:"name"`
-	Region                          string   `json:"region"`
-	ClientUsername                  string   `json:"clientUsername"`
-	ClientPassword                  string   `json:"clientPassword"`
-	ReferencedByMessagingServiceIds []string `json:"referencedByMessagingServiceIds"`
-	OrgId                           string   `json:"orgId"`
-	Status                          string   `json:"status"`
-	LastConnectedTime               string   `json:"lastConnectedTime"`
-	EventManagementAgentRegionId    string   `json:"eventManagementAgentRegionId"`
-	Type                            string   `json:"type"`
+	CreatedTime                     time.Time `json:"createdTime"`
+	UpdatedTime                     time.Time `json:"updatedTime"`
+	CreatedBy                       string    `json:"createdBy"`
+	ChangedBy                       string    `json:"changedBy"`
+	Id                              string    `json:"id"`
+	Name                            string    `json:"name"`
+	Region                          string    `json:"region"`
+	ClientUsername                  string    `json:"clientUsername"`
+	ClientPassword                  string    `json:"clientPassword"`
+	ReferencedByMessagingServiceIds []string  `json:"referencedByMessagingServiceIds"`
+	OrgId                           string    `json:"orgId"`
+	Status                          string    `json:"status"`
+	LastConnectedTime               time.Time `json:"lastConnectedTime"`
+	EventManagementAgentRegionId    string    `json:"eventManagementAgentRegionId"`
+	Type                            string    `json:"type"`
 }
 
 type EventManagementAgentListResponse struct {

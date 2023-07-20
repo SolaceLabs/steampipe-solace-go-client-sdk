@@ -2,18 +2,19 @@ package solace
 
 import (
 	"fmt"
+	"time"
 )
 
 type ApplicationDomain struct {
-	Id                                   string `json:"id"`
-	Name                                 string `json:"name"`
-	Description                          string `json:"description"`
-	UniqueTopicAddressEnforcementEnabled bool   `json:"uniqueTopicAddressEnforcementEnabled"`
-	TopicDomainEnforcementEnabled        bool   `json:"topicDomainEnforcementEnabled"`
-	CreatedBy                            string `json:"createdBy"`
-	CreatedTime                          string `json:"createdTime"`
-	ChangedBy                            string `json:"changedBy"`
-	UpdatedTime                          string `json:"updatedTime"`
+	Id                                   string    `json:"id"`
+	Name                                 string    `json:"name"`
+	Description                          string    `json:"description"`
+	UniqueTopicAddressEnforcementEnabled bool      `json:"uniqueTopicAddressEnforcementEnabled"`
+	TopicDomainEnforcementEnabled        bool      `json:"topicDomainEnforcementEnabled"`
+	CreatedBy                            string    `json:"createdBy"`
+	CreatedTime                          time.Time `json:"createdTime"`
+	ChangedBy                            string    `json:"changedBy"`
+	UpdatedTime                          time.Time `json:"updatedTime"`
 	Stats                                struct {
 		SchemaCount          int `json:"schemaCount"`
 		EventCount           int `json:"eventCount"`
