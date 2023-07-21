@@ -50,7 +50,7 @@ func validateApiUrl(envUrl *string) error {
 
 func validateApiToken(apiToken *string) error {
 	if apiToken == nil {
-		return fmt.Errorf("the API Token is not defined; to get a token, visit the API tab in your Profile page in Make")
+		return fmt.Errorf("the API Token is not defined; to get a token, visit https://docs.solace.com/Cloud/ght_api_tokens.htm and follow the instructions.")
 	}
 
 	return nil

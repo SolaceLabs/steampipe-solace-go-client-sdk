@@ -87,7 +87,7 @@ func (at *Client) Post(config *RequestConfig, target interface{}) ([]byte, error
 }
 
 func (at *Client) createAuthorizedRequest(apiUrl string, method string) (*http.Request, error) {
-	log.Println(fmt.Sprintf("[MAKE]:[%s] -> %s", method, apiUrl))
+	log.Println(fmt.Sprintf("[SOLACE]:[%s] -> %s", method, apiUrl))
 
 	// make a new request
 	req, err := http.NewRequestWithContext(context.Background(), method, apiUrl, nil)
